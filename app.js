@@ -10,7 +10,6 @@ const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValue}`
         .then(data => {
             // console.log(data.meals[0])
             displayMeals(data.meals)
-            
         })
         .catch(error => console.log(error)) 
 })
@@ -19,10 +18,9 @@ const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValue}`
 const displayMeals = meals => {
     const containerDiv = document.getElementById('foods');
     meals.forEach(meal => {
-        console.log(meal)
+        // console.log(meal)
         const div = document.createElement('div');
         div.className = 'meal';
-        // console.log(meal)
         const mealInfo =`
                 <img src='${meal.strMealThumb}' >
                 <h3>${meal.strMeal}</h3>
@@ -57,7 +55,7 @@ const displayMealIngredient = meal => {
         <img src='${meal.strMealThumb}'>
         <h1>${meal.strMeal}</h1>
         <h3>Ingredients</h3>
-        
+        <p>${meal.strIngredient1}</p>
         <p>${meal.strIngredient2}</p>
         <p>${meal.strIngredient3}</p>
         <p>${meal.strIngredient4}</p>
@@ -65,12 +63,3 @@ const displayMealIngredient = meal => {
         
     `;      
 }
-
-    
-    
-
-
-
-
-
-
