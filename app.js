@@ -19,16 +19,21 @@ searchBtn.addEventListener('click', () => {
 
 
 const displayMeals = meals => {
+    const ingredientDetails = document.getElementById('ingredient-details');
+    // for refresh details 
+    ingredientDetails.innerHTML='';
+
     const containerDiv = document.getElementById('foods');
+    // for refresh details
     containerDiv.innerHTML = '';
+
     meals.forEach(meal => {
         // console.log(meal)
         const div = document.createElement('div');
         div.className = 'meal';
         const mealInfo = `
                 <img onclick="display('${meal.strMeal}')" src='${meal.strMealThumb}' >
-                <h3>${meal.strMeal}</h3>
-                
+                <h3>${meal.strMeal}</h3>     
         `;
         div.innerHTML = mealInfo;
         containerDiv.appendChild(div)
@@ -48,22 +53,19 @@ const displayMealIngredient = meal => {
     // console.log(meal)
 
     const ingredientDetails = document.getElementById('ingredient-details');
-    
     ingredientDetails.innerHTML = `
         <img src='${meal.strMealThumb}'>
         <h1>${meal.strMeal}</h1>
         <h3>Ingredients:</h3>
-        <ul>
-            <li>${meal.strIngredient1}</li>
-            <li>${meal.strIngredient2}</li>
-            <li>${meal.strIngredient3}</li>
-            <li>${meal.strIngredient4}</li>
-            <li>${meal.strIngredient5}</li>
-            <li>${meal.strIngredient6}</li>
-            <li>${meal.strIngredient7}</li>
-            <li>${meal.strIngredient8}</li>
-            <li>${meal.strIngredient9}</li>
-            <li>${meal.strIngredient10}</li>
-        </ul>
+            <p>${meal.strIngredient1}</p>
+            <p>${meal.strIngredient2}</p>
+            <p>${meal.strIngredient3}</p>
+            <p>${meal.strIngredient4}</p>
+            <p>${meal.strIngredient5}</p>
+            <p>${meal.strIngredient6}</p>
+            <p>${meal.strIngredient7}</p>
+            <p>${meal.strIngredient8}</p>
+            <p>${meal.strIngredient9}</p>
+            <p>${meal.strIngredient10}</p>
     `;
 }
