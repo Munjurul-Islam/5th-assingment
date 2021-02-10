@@ -1,7 +1,7 @@
 const searchBtn = document.getElementById('search_button');
 searchBtn.addEventListener('click', () => {
 
-    let inputValue = document.getElementById('input-value').value.trim();
+    let inputValue = document.getElementById('input-value').value;
     if(inputValue < ' ' ){
         alert('plz,,write any text for searching')
     }
@@ -37,7 +37,7 @@ const displayMeals = meals => {
 
 const display = ingredientDetails => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${ingredientDetails} `
-    console.log(url)
+    // console.log(url)
     fetch(url)
         .then(res => res.json())
         .then(data => displayMealIngredient(data.meals[0]))
@@ -52,17 +52,18 @@ const displayMealIngredient = meal => {
     ingredientDetails.innerHTML = `
         <img src='${meal.strMealThumb}'>
         <h1>${meal.strMeal}</h1>
-        <h3>Ingredients</h3>
-        <p>${meal.strIngredient1}</p>
-        <p>${meal.strIngredient2}</p>
-        <p>${meal.strIngredient3}</p>
-        <p>${meal.strIngredient4}</p>
-        <p>${meal.strIngredient5}</p>
-        <p>${meal.strIngredient6}</p>
-        <p>${meal.strIngredient7}</p>
-        <p>${meal.strIngredient8}</p>
-        <p>${meal.strIngredient9}</p>
-        <p>${meal.strIngredient10}</p>
-        
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>${meal.strIngredient1}</li>
+            <li>${meal.strIngredient2}</li>
+            <li>${meal.strIngredient3}</li>
+            <li>${meal.strIngredient4}</li>
+            <li>${meal.strIngredient5}</li>
+            <li>${meal.strIngredient6}</li>
+            <li>${meal.strIngredient7}</li>
+            <li>${meal.strIngredient8}</li>
+            <li>${meal.strIngredient9}</li>
+            <li>${meal.strIngredient10}</li>
+        </ul>
     `;
 }

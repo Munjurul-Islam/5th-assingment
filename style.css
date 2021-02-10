@@ -20,10 +20,21 @@
     margin-left: 45px;
 }
 
-#ingredient-details{
+#ingredient-details {
     width: 400px;
     margin: 20px;
+    box-shadow: lightgrey 20px 7px 20px;
+    border-radius: 20px;
+    position: relative;
+    left: 32%;
 }
 #ingredient-details img{
-    width: 380px;
+    width: 400px;
+    border-radius: 20px;
+}
+#ingredient-details h1{
+    text-align: center;
+}
+#ingredient-details li{
+    list-style-type:decimal;
 }
