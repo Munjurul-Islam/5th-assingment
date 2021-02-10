@@ -2,16 +2,19 @@ const searchBtn = document.getElementById('search_button');
 searchBtn.addEventListener('click', () => {
 
     let inputValue = document.getElementById('input-value').value.trim();
-
-
-    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValue}`;
-    fetch(url)
+    if(inputValue < ' ' ){
+        alert('plz,,write any text for searching')
+    }
+    else{
+        const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValue}`;
+        fetch(url)
         .then(response => response.json())
         .then(data => {
             // console.log(data.meals[0])
             displayMeals(data.meals)
         })
         .catch(error => console.log(error))
+    }
 })
 
 
@@ -34,6 +37,7 @@ const displayMeals = meals => {
 
 const display = ingredientDetails => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${ingredientDetails} `
+    console.log(url)
     fetch(url)
         .then(res => res.json())
         .then(data => displayMealIngredient(data.meals[0]))
@@ -41,9 +45,10 @@ const display = ingredientDetails => {
 }
 
 const displayMealIngredient = meal => {
-    console.log(meal)
+    // console.log(meal)
 
     const ingredientDetails = document.getElementById('ingredient-details');
+    
     ingredientDetails.innerHTML = `
         <img src='${meal.strMealThumb}'>
         <h1>${meal.strMeal}</h1>
